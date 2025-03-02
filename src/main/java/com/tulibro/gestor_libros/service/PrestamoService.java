@@ -24,7 +24,10 @@ public class PrestamoService {
 
     public Prestamo registrarPrestamo(Prestamo prestamo) {
         // Lógica de negocio: verificar que el cliente no tenga más de 3 libros prestados
-        int librosPrestados = prestamoRepository.contarLibrosPrestados(prestamo.getCliente().getId());
+
+
+
+        long librosPrestados =  prestamo.getCliente().getId();
 
         if (librosPrestados >= 3) {
             throw new IllegalStateException("El cliente ya tiene 3 libros prestados. No puede solicitar más.");

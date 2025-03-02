@@ -1,5 +1,6 @@
 package com.tulibro.gestor_libros.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -20,7 +21,13 @@ public class Autor {
 
 
     @OneToMany(mappedBy = "autor", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference // Evita que entre en un ciclo
     private List<Libro> libros;
+
+    public Autor() {
+        this.libros = new ArrayList<>();
+
+    }
 
     public Long getId() {
         return id;

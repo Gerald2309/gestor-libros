@@ -1,5 +1,8 @@
 package com.tulibro.gestor_libros.model;
 
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -20,6 +23,7 @@ public class Libro {
     @ManyToOne
     @JoinColumn(name = "autor_id")
     @NotNull(message = "El libro debe tener un autor")
+    @JsonBackReference //Evita que entre en un ciclo (serialización)
     private Autor autor;
 
     @OneToMany(mappedBy = "libro", cascade = CascadeType.ALL)
