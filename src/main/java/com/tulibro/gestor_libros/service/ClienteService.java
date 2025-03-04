@@ -1,7 +1,6 @@
 package com.tulibro.gestor_libros.service;
 
 import com.tulibro.gestor_libros.model.Cliente;
-import com.tulibro.gestor_libros.model.Cliente;
 import com.tulibro.gestor_libros.repository.ClienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

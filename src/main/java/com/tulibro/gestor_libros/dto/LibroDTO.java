@@ -12,6 +12,9 @@ public class LibroDTO {
         this.autor = autor;
     }
 
+    public LibroDTO(Long id, String titulo) {
+    }
+
     public Long getId() {
         return id;
     }
